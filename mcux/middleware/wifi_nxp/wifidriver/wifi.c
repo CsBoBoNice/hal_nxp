@@ -58,8 +58,8 @@ t_u64 csi_event_data_len = 0;
 extern wifi_ecsa_status_control ecsa_status_control;
 #endif
 
-#if !CONFIG_WIFI_CORE_STACK_SIZE
-#define CONFIG_WIFI_CORE_STACK_SIZE (2048)
+#ifndef CONFIG_NXP_WIFI_CORE_STACK_SIZE
+#define CONFIG_CORE_STACK_SIZE (2048)
 #endif
 
 #define MAX_MCAST_LEN (MLAN_MAX_MULTICAST_LIST_SIZE * MLAN_MAC_ADDR_LENGTH)
@@ -151,52 +151,52 @@ typedef enum __mlan_status
 static void wifi_core_task(osa_task_param_t arg);
 
 /* OSA_TASKS: name, priority, instances, stackSz, useFloat */
-static OSA_TASK_DEFINE(wifi_core_task, OSA_PRIORITY_HIGH, 1, CONFIG_WIFI_CORE_STACK_SIZE, 0);
+static OSA_TASK_DEFINE(wifi_core_task, OSA_PRIORITY_HIGH, 1, CONFIG_CORE_STACK_SIZE, 0);
 
 #endif
 
-#if !CONFIG_WIFI_SCAN_STACK_SIZE
-#define CONFIG_WIFI_SCAN_STACK_SIZE (2048)
+#ifndef CONFIG_NXP_WIFI_SCAN_STACK_SIZE
+#define CONFIG_SCAN_STACK_SIZE (2048)
 #endif
 
 static void wifi_scan_task(osa_task_param_t arg);
 
 /* OSA_TASKS: name, priority, instances, stackSz, useFloat */
-static OSA_TASK_DEFINE(wifi_scan_task, OSA_PRIORITY_NORMAL, 1, CONFIG_WIFI_SCAN_STACK_SIZE, 0);
+static OSA_TASK_DEFINE(wifi_scan_task, OSA_PRIORITY_NORMAL, 1, CONFIG_SCAN_STACK_SIZE, 0);
 
-#if !CONFIG_WIFI_DRIVER_STACK_SIZE
-#define CONFIG_WIFI_DRIVER_STACK_SIZE (2048)
+#ifndef CONFIG_NXP_WIFI_DRIVER_STACK_SIZE
+#define CONFIG_DRIVER_STACK_SIZE (2048)
 #endif
 
 static void wifi_drv_task(osa_task_param_t arg);
 
 /* OSA_TASKS: name, priority, instances, stackSz, useFloat */
-static OSA_TASK_DEFINE(wifi_drv_task, OSA_PRIORITY_HIGH, 1, CONFIG_WIFI_DRIVER_STACK_SIZE, 0);
+static OSA_TASK_DEFINE(wifi_drv_task, OSA_PRIORITY_HIGH, 1, CONFIG_DRIVER_STACK_SIZE, 0);
 
 #if CONFIG_WMM
 
-#if !CONFIG_WIFI_DRV_TX_STACK_SIZE
-#define CONFIG_WIFI_DRV_TX_STACK_SIZE (2048)
+#ifndef CONFIG_NXP_WIFI_TX_STACK_SIZE
+#define CONFIG_TX_STACK_SIZE (2048)
 #endif
 
 static void wifi_drv_tx_task(osa_task_param_t arg);
 
 /* OSA_TASKS: name, priority, instances, stackSz, useFloat */
 #ifdef RW610
-static OSA_TASK_DEFINE(wifi_drv_tx_task, OSA_PRIORITY_ABOVE_NORMAL, 1, CONFIG_WIFI_DRV_TX_STACK_SIZE, 0);
+static OSA_TASK_DEFINE(wifi_drv_tx_task, OSA_PRIORITY_ABOVE_NORMAL, 1, CONFIG_TX_STACK_SIZE, 0);
 #else
-static OSA_TASK_DEFINE(wifi_drv_tx_task, OSA_PRIORITY_HIGH, 1, CONFIG_WIFI_DRV_TX_STACK_SIZE, 0);
+static OSA_TASK_DEFINE(wifi_drv_tx_task, OSA_PRIORITY_HIGH, 1, CONFIG_TX_STACK_SIZE, 0);
 #endif
 #endif
 
-#if !CONFIG_WIFI_POWERSAVE_STACK_SIZE
-#define CONFIG_WIFI_POWERSAVE_STACK_SIZE (1024)
+#ifndef CONFIG_NXP_WIFI_POWERSAVE_STACK_SIZE
+#define CONFIG_POWERSAVE_STACK_SIZE (1024)
 #endif
 
 static void wifi_powersave_task(osa_task_param_t arg);
 
 /* OSA_TASKS: name, priority, instances, stackSz, useFloat */
-static OSA_TASK_DEFINE(wifi_powersave_task, OSA_PRIORITY_NORMAL, 1, CONFIG_WIFI_POWERSAVE_STACK_SIZE, 0);
+static OSA_TASK_DEFINE(wifi_powersave_task, OSA_PRIORITY_NORMAL, 1, CONFIG_POWERSAVE_STACK_SIZE, 0);
 
 int wifi_set_mac_multicast_addr(const char *mlist, t_u32 num_of_addr);
 int wrapper_get_wpa_ie_in_assoc(uint8_t *wpa_ie);
