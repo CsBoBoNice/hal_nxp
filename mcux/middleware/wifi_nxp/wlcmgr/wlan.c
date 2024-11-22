@@ -358,7 +358,7 @@ static struct wifi_scan_params_t g_wifi_scan_params = {NULL,
                                                        60,
                                                        250};
 
-#ifndef CONFIG_NXP_WIFI_WLCMGR_STACK_SIZE
+#ifndef CONFIG_NXP_WIFI_WLCMGR_TASK_STACK_SIZE
 #define CONFIG_WLCMGR_STACK_SIZE (5120)
 #endif
 
@@ -368,7 +368,7 @@ static void wlcmgr_task(osa_task_param_t arg);
 static OSA_TASK_DEFINE(wlcmgr_task, OSA_PRIORITY_HIGH, 1, CONFIG_WLCMGR_STACK_SIZE, 0);
 
 #if CONFIG_WPS2
-#ifndef CONFIG_NXP_WIFI_WPS_STACK_SIZE
+#ifndef CONFIG_NXP_WIFI_WPS_TASK_STACK_SIZE
 #define CONFIG_WPS_STACK_SIZE (5120)
 #endif
 
@@ -426,7 +426,7 @@ static struct wps_config wps_conf = {
 #ifdef RW610
 
 /*wlmon_mon_task takes 3072B with supplicant control interface API*/
-#ifndef CONFIG_NXP_WIFI_MON_STACK_SIZE
+#ifndef CONFIG_NXP_WIFI_MON_TASK_STACK_SIZE
 #define CONFIG_MON_STACK_SIZE (3072)
 #endif
 

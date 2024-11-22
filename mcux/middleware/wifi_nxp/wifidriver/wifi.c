@@ -58,7 +58,7 @@ t_u64 csi_event_data_len = 0;
 extern wifi_ecsa_status_control ecsa_status_control;
 #endif
 
-#ifndef CONFIG_NXP_WIFI_CORE_STACK_SIZE
+#ifndef CONFIG_NXP_WIFI_CORE_TASK_STACK_SIZE
 #define CONFIG_CORE_STACK_SIZE (2048)
 #endif
 
@@ -155,7 +155,7 @@ static OSA_TASK_DEFINE(wifi_core_task, OSA_PRIORITY_HIGH, 1, CONFIG_CORE_STACK_S
 
 #endif
 
-#ifndef CONFIG_NXP_WIFI_SCAN_STACK_SIZE
+#ifndef CONFIG_NXP_WIFI_SCAN_TASK_STACK_SIZE
 #define CONFIG_SCAN_STACK_SIZE (2048)
 #endif
 
@@ -164,7 +164,7 @@ static void wifi_scan_task(osa_task_param_t arg);
 /* OSA_TASKS: name, priority, instances, stackSz, useFloat */
 static OSA_TASK_DEFINE(wifi_scan_task, OSA_PRIORITY_NORMAL, 1, CONFIG_SCAN_STACK_SIZE, 0);
 
-#ifndef CONFIG_NXP_WIFI_DRIVER_STACK_SIZE
+#ifndef CONFIG_NXP_WIFI_DRIVER_TASK_STACK_SIZE
 #define CONFIG_DRIVER_STACK_SIZE (2048)
 #endif
 
@@ -175,7 +175,7 @@ static OSA_TASK_DEFINE(wifi_drv_task, OSA_PRIORITY_HIGH, 1, CONFIG_DRIVER_STACK_
 
 #if CONFIG_WMM
 
-#ifndef CONFIG_NXP_WIFI_TX_STACK_SIZE
+#ifndef CONFIG_NXP_WIFI_TX_TASK_STACK_SIZE
 #define CONFIG_TX_STACK_SIZE (2048)
 #endif
 
@@ -189,7 +189,7 @@ static OSA_TASK_DEFINE(wifi_drv_tx_task, OSA_PRIORITY_HIGH, 1, CONFIG_TX_STACK_S
 #endif
 #endif
 
-#ifndef CONFIG_NXP_WIFI_POWERSAVE_STACK_SIZE
+#ifndef CONFIG_NXP_WIFI_POWERSAVE_TASK_STACK_SIZE
 #define CONFIG_POWERSAVE_STACK_SIZE (1024)
 #endif
 
