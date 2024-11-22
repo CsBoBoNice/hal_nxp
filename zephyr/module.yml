@@ -46,7 +46,7 @@ blobs:
     url: https://github.com/nxp-mcuxpresso/mcux-sdk-middleware-bluetooth-controller/raw/refs/tags/MCUX_2.16.000/bin/mcxw71_nbu_ble_1_9_14_0.sb3
     description: "BLE Controller for MCXW71 boards"
 #SD8987
-  - path: SD8978/sduart8987_wlan_bt.bin.inc
+  - path: SD8987/sduart8987_wlan_bt.bin.inc
     sha256: e8f0db42a54769d5d1c54f2b931121713211d3925acb3c8753f117f6376c8ffb
     type: img
     version: '1.0'

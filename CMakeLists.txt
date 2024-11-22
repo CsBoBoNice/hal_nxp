@@ -17,3 +17,4 @@ else()
 endif()
 
 add_subdirectory(zephyr/src)
+add_subdirectory_ifdef(CONFIG_NXP_88W8987 zephyr/blobs/SD8987)
