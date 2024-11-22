@@ -53,7 +53,6 @@ zephyr_compile_definitions_ifdef(CONFIG_NXP_88W8987_MURATA_1ZM_M2
 )
 
 if(CONFIG_NXP_88W8987)
-
 zephyr_include_directories(
     wifi_bt_firmware/8987
 )
@@ -61,7 +60,36 @@ zephyr_include_directories(
 zephyr_library_sources_ifdef(CONFIG_NXP_88W8987
     wifi_bt_firmware/8987/8987_cpu12.c
 )
+endif()
 
+if(CONFIG_NXP_IW416)
+zephyr_include_directories(
+    wifi_bt_firmware/IW416
+)
+
+zephyr_library_sources_ifdef(CONFIG_NXP_IW416
+    wifi_bt_firmware/IW416/IW416_cpu12.c
+)
+endif()
+
+if(CONFIG_NXP_88W8801)
+zephyr_include_directories(
+    wifi_bt_firmware/8801
+)
+
+zephyr_library_sources_ifdef(CONFIG_NXP_88W8801
+    wifi_bt_firmware/8801/8801_cpu1.c
+)
+endif()
+
+if(CONFIG_NXP_IW61X)
+zephyr_include_directories(
+    wifi_bt_firmware/nw61x
+)
+
+zephyr_library_sources_ifdef(CONFIG_NXP_IW61X
+    wifi_bt_firmware/nw61x/nw61x_cpu12_se.c
+)
 endif()
 
 zephyr_compile_definitions_ifdef(CONFIG_NXP_IW416_AW_AM457_USD
